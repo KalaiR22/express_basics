@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>Members Name</h1>
+    <form action="/api/member" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email">
+        </div>
+        <input type="submit" value="Add Member">
+    </form>
+    <h4>Members</h4>
+    <ul>
+        {{#each member}}
+        <li>{{this.name}}:{{this.email}}</li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>

@@ -1,7 +1,17 @@
 const express = require('express');
 const path = require('path');
+const exphbs = require('express-handlebars') 
 const logger = require('./logger');
+const member = require('./member')
 const app = express();
+
+//Handlebar middleware
+
+
+app.get('/', (req, res)=> res.render('index',{
+    tittle : 'members name',
+    member
+}))
 // Body parser middleware initialization
 app.use(express.json());
 // Import the routes for '/api/member'
