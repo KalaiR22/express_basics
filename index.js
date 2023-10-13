@@ -6,6 +6,9 @@ const member = require('./member')
 const app = express();
 
 //Handlebar middleware
+app.engine('handlebars', exphbs.engine());
+app.set('view engine', 'handlebars');
+
 
 
 app.get('/', (req, res)=> res.render('index',{
@@ -14,6 +17,7 @@ app.get('/', (req, res)=> res.render('index',{
 }))
 // Body parser middleware initialization
 app.use(express.json());
+app.use(express.urlencoded({extended:false}))
 // Import the routes for '/api/member'
 app.use('/api/member', require('./routes/api/Member'));
 
